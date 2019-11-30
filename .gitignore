@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/DistributedCache_GetOrAdd_ErrorDemo/v16/Server/sqlite3
+/DistributedCache_GetOrAdd_ErrorDemo/obj/Debug/netcoreapp3.0
+/DistributedCache_GetOrAdd_ErrorDemo/bin/Debug/netcoreapp3.0
+/DistributedCache_GetOrAdd_ErrorDemo/obj
+/.vs/DistributedCache_GetOrAdd_ErrorDemo/v16
