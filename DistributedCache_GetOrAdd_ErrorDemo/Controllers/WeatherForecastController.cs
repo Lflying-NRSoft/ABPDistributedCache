@@ -35,6 +35,25 @@ namespace DistributedCache_GetOrAdd_ErrorDemo.Controllers
             return await _distributedCache.GetOrAddAsync(key, async () => await GetWeatherForecastAsync());
         }
 
+        [HttpGet("Test")]
+        public IEnumerable<WeatherForecast> Test()
+        {
+            var key = nameof(WeatherForecast);
+            return _distributedCache.GetOrAdd(key, () =>
+            {
+                _logger.LogDebug("没有命中缓存");
+                var rng = new Random();
+                var result = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                {
+                    Date = DateTime.Now.AddDays(index),
+                    TemperatureC = rng.Next(-20, 55),
+                    Summary = Summaries[rng.Next(Summaries.Length)]
+                })
+                .ToArray();
+                return result;
+            });
+        }
+
         public Task<WeatherForecast[]> GetWeatherForecastAsync()
         {
             _logger.LogDebug("没有命中缓存");
