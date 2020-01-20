@@ -1,7 +1,7 @@
-53226 fetches, 50 max parallel, 2.66662e+07 bytes, in 60.0004 seconds
-501 mean bytes/connection
-887.095 fetches/sec, 444434 bytes/sec
-msecs/connect: 4.46668 mean, 27.386 max, 0.647 min
-msecs/first-response: 17.0714 mean, 201.084 max, 8.587 min
+80785 fetches, 50 max parallel, 3.99078e+07 bytes, in 60.0003 seconds
+494 mean bytes/connection
+1346.41 fetches/sec, 665127 bytes/sec
+msecs/connect: 2.56381 mean, 25.4 max, 0.487 min
+msecs/first-response: 7.79766 mean, 293.244 max, 5.414 min
 HTTP response codes:
-  code 200 -- 53226
+  code 200 -- 80785

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Volo.Abp;
@@ -22,6 +23,12 @@ namespace DistributedCache_GetOrAdd_ErrorDemo
             {
                 options.Configuration = configuration["Redis:Configuration"];
             });
+
+            var csredis = new CSRedis.CSRedisClient(configuration["Redis:Configuration"]);
+            //初始化 RedisHelper
+            RedisHelper.Initialization(csredis);
+            //注册mvc分布式缓存
+            context.Services.AddSingleton<IDistributedCache>(new Microsoft.Extensions.Caching.Redis.CSRedisCache(RedisHelper.Instance));
         }
         public override void OnApplicationInitialization(
             ApplicationInitializationContext context)

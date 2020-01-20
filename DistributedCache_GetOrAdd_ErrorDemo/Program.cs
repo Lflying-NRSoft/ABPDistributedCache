@@ -24,8 +24,8 @@ namespace DistributedCache_GetOrAdd_ErrorDemo
                 .Build();
 
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .MinimumLevel.Error()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
                 .Enrich.WithProperty("Application", "ProductService")
                 .Enrich.FromLogContext()
                 .WriteTo.File("Logs/logs.txt")
